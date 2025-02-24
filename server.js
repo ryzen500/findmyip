@@ -4,6 +4,9 @@ const cors = require("cors");
 
 const app = express();
 
+// Port 
+const PORT =80;
+
 // 🔥 Enable CORS
 app.use(cors({ origin: "*", methods: "GET,POST,PUT,DELETE", allowedHeaders: "*" }));
 
@@ -35,4 +38,4 @@ app.get("/get-os-ip", (req, res) => {
     res.json({ ip: localIP });
 });
 
-app.listen(5000, () => console.log("✅ Server running on port 5000"));
+app.listen(PORT, () => console.log("✅ Server running on port 80"));

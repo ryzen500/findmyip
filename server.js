@@ -10,8 +10,15 @@ const PORT = 5000;
 // 🔥 Enable CORS
 app.use(cors({ origin: "*", methods: "GET,POST,PUT,DELETE", allowedHeaders: "*" }));
 
+
+// Tes rute utama
+app.get("/findmyip/test", (req, res) => {
+    res.send("🚀 Express.js berjalan di port 80!");
+});
+
+
 // ✅ Endpoint untuk mendapatkan IP klien
-app.get("/get-client-ip", (req, res) => {
+app.get("/findmyip/get-client-ip", (req, res) => {
     let clientIp = req.headers["x-forwarded-for"] || req.socket.remoteAddress;
      const deviceName = os.hostname();
 
@@ -24,7 +31,7 @@ app.get("/get-client-ip", (req, res) => {
 });
 
 // ✅ Endpoint untuk mendapatkan IP dari sistem jaringan (Local Network)
-app.get("/get-os-ip", (req, res) => {
+app.get("/findmyip/get-os-ip", (req, res) => {
     const networkInterfaces = os.networkInterfaces();
     let localIP = "Tidak ditemukan";
 
